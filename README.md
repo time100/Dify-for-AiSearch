@@ -152,6 +152,15 @@ pnpm build
 npm run build
 # 或
 yarn build
+
+# 构建完成的资源存储在 `dist` 目录下，可以通过NGINX部署。
+```
+
+### 伪静态配置
+```nginx
+location / {
+    try_files $uri $uri/ /index.html;
+}
 ```
 
 ### 讯飞语音识别
