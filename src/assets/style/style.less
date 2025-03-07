@@ -1,0 +1,222 @@
+/* 全局样式 */
+:root {
+  --font-family-base: "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-base);
+  --border-radius-none: 0 !important;
+  --border-radius-small: 8px !important;
+  --border-radius-medium: 8px !important;
+  --border-radius-large: 10px !important;
+  --border-radius-xl: 12px !important;
+  --border-radius-circle: 50% !important;
+
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  transition: background 1s ease;
+  background: url(https://io.onenov.cn/file/202501150433629.svg) no-repeat center center / cover;
+}
+
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #fff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+
+/* 整个滚动条 */
+::-webkit-scrollbar {
+  width: 0px;
+  /* 设置垂直滚动条的宽度 */
+  height: 0px;
+  /* 设置水平滚动条的高度 */
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* 轨道背景色 */
+  border-radius: 10px;
+  /* 圆角 */
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  /* 默认滑块颜色 */
+  border-radius: 10px;
+  /* 滑块圆角 */
+}
+
+/* 滚动条滑块悬停时 */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  /* 悬停时颜色 */
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-auto::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+  background: rgb(var(--primary-6), .5) !important;
+  border-radius: 5px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--primary-6)) !important;
+}
+
+.arco-page-header {
+  padding: 10px 0 !important;
+}
+
+details {
+  display: block !important;
+  color: rgb(var(--primary-6)) !important;
+  border: 1px solid rgb(var(--primary-6), 0.5) !important;
+  background: rgb(var(--pupre-1), 0.5) !important;
+}
+
+details[open] {
+  border: 1px solid rgb(var(--primary-6)) !important;
+  color: var(--color-text-1) !important;
+}
+
+
+details:hover {
+  transition: all 0.3s;
+  border: 1px solid rgb(var(--primary-6)) !important;
+}
+
+details[open] summary {
+  padding-bottom: 5px !important;
+}
+
+.text-color {
+  color: var(--color-text-1) !important;
+}
+
+.md-editor-dark,
+.md-editor-modal-container[data-theme='dark'] {
+  --md-bk-color: #00000000 !important;
+}
+
+div.cyanosis-theme details>p {
+  color: var(--color-text-1) !important;
+}
+
+.md-editor-preview ol,
+.md-editor-preview ul {
+  padding-left: 1em !important;
+}
+
+.md-editor div.cyanosis-theme {
+  --md-theme-title-color: rgb(var(--primary-6)) !important;
+}
+
+div.cyanosis-theme details>summary {
+  border-bottom: none !important;
+}
+
+img {
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+.search-box {
+  border: 3px solid rgb(var(--primary-6), 0.5) !important;
+  background-color: var(--color-filter-right);
+  -webkit-backdrop-filter: blur(var(--blur-x));
+  backdrop-filter: blur(var(--blur-x));
+  transition: all 0.3s;
+
+  .arco-textarea {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    padding: 0px !important;
+  }
+
+  .arco-textarea-wrapper {
+    background-color: rgb(var(--primary-6), 0) !important;
+  }
+
+  .arco-select-view-single .arco-select-view-suffix {
+    color: #fff !important;
+  }
+
+  .arco-select-view-single {
+    background-color: rgb(var(--primary-6)) !important;
+    color: #fff !important;
+    width: auto !important;
+  }
+
+  .arco-textarea-wrapper:focus-within,
+  .arco-textarea-wrapper.arco-textarea-focus {
+    border-color: rgb(var(--primary-6), 0) !important;
+  }
+
+  .arco-textarea-wrapper:hover {
+    background-color: rgb(var(--primary-6), 0) !important;
+  }
+}
+
+.search-box:hover {
+  border: 3px solid rgb(var(--primary-6), 0.8) !important;
+  background-color: var(--color-card) !important;
+}
+
+.search-box:focus-within,
+.search-box.arco-textarea-focus {
+  border: 3px solid rgb(var(--primary-6)) !important;
+  background-color: var(--color-card) !important;
+}
+
+.md-editor {
+  background-color: #00000000 !important;
+}
+
+.arco-card {
+  background-color: var(--color-filter) !important;
+  -webkit-backdrop-filter: blur(var(--blur-x));
+  backdrop-filter: blur(var(--blur-x));
+}
+
+.arco-card-bordered {
+  border: 1px solid var(--color-border-filter);
+}
+
+.arco-layout {
+  overflow: hidden;
+}
+
+.history-drawer .arco-drawer {
+  min-width: 300px !important;
+  max-width: 400px !important;
+}

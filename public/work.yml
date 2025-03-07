@@ -1,0 +1,3120 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: AI搜索
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/bing:0.0.3@79ff8299f4aaaa514699e06a7f969dadd3e2ed5b5176a5e7341e3b92e6fd4afc
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/perplexity:0.0.3@e563b8c7c548e0370d1080e81fae03b3645dfd67c9534381b2796c0a78d2cf9c
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tavily:0.0.2@694a00b7ed6087fb212512931042dc236fb7d2833fa32ff5f708317d61551777
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/serper:0.0.2@4e0d70360c68b17b7504b65f6f14ecd00a40b8b138b716ff72f3bfd8139961ab
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/searxng:0.0.2@cb5502d22b7d12f0cfc52280269a0594ff2ea4ac4d55e1d6c2620ea04f42a5f5
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/zhipuai:0.0.4@d808ffb7245094d5756343d7d487ab592f1a4dbf195f3cbcb9ee17cceefa3e8a
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai_api_compatible:0.0.5@188b29121e708c1d0b26841bc2e66874a06c6cae73a2049c9215f57cb6cbca44
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/volcengine_maas:0.0.5@8b50637033bb9ec55ee64f9e89a4b4db84b2212399edc307791cdcf2b90842b1
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions: []
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - remote_url
+      - local_file
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 1
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: true
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1740770058843-source-answer-target
+      selected: false
+      source: '1740770058843'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1740769728068-true-1740770058843-target
+      selected: false
+      source: '1740769728068'
+      sourceHandle: 'true'
+      target: '1740770058843'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: if-else
+      id: 1740769452636-source-1740840213013-target
+      selected: false
+      source: '1740769452636'
+      sourceHandle: source
+      target: '1740840213013'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1740840242531-source-1740840246946-target
+      selected: false
+      source: '1740840242531'
+      sourceHandle: source
+      target: '1740840246946'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: variable-aggregator
+      id: 1740770033934-source-1740844134495-target
+      selected: false
+      source: '1740770033934'
+      sourceHandle: source
+      target: '1740844134495'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1740840213013-true-1740770027147-target
+      selected: false
+      source: '1740840213013'
+      sourceHandle: 'true'
+      target: '1740770027147'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1740840213013-true-1740770033934-target
+      selected: false
+      source: '1740840213013'
+      sourceHandle: 'true'
+      target: '1740770033934'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1740840213013-false-1740840060664-target
+      selected: false
+      source: '1740840213013'
+      sourceHandle: 'false'
+      target: '1740840060664'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1740840213013-false-1740845876636-target
+      selected: false
+      source: '1740840213013'
+      sourceHandle: 'false'
+      target: '1740845876636'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: if-else
+      id: 1740844134495-source-1740769728068-target
+      selected: false
+      source: '1740844134495'
+      sourceHandle: source
+      target: '1740769728068'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1740840213013-false-1740849704812-target
+      selected: false
+      source: '1740840213013'
+      sourceHandle: 'false'
+      target: '1740849704812'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 1740845876636-source-1740840242531-target
+      selected: false
+      source: '1740845876636'
+      sourceHandle: source
+      target: '1740840242531'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 1740840060664-source-1740840242531-target
+      selected: false
+      source: '1740840060664'
+      sourceHandle: source
+      target: '1740840242531'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 1740849704812-source-1740840242531-target
+      selected: false
+      source: '1740849704812'
+      sourceHandle: source
+      target: '1740840242531'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1740769728068-ee509ae2-5491-4f81-ab5f-a333819119bc-1740911921881-target
+      selected: false
+      source: '1740769728068'
+      sourceHandle: ee509ae2-5491-4f81-ab5f-a333819119bc
+      target: '1740911921881'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1740911921881-source-1740911942582-target
+      selected: false
+      source: '1740911921881'
+      sourceHandle: source
+      target: '1740911942582'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1740840213013-49a02f76-63ae-4cff-b1d1-87361ae3bea3-1741010608798-target
+      selected: false
+      source: '1740840213013'
+      sourceHandle: 49a02f76-63ae-4cff-b1d1-87361ae3bea3
+      target: '1741010608798'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1741010608798-source-1741010613830-target
+      selected: false
+      source: '1741010608798'
+      sourceHandle: source
+      target: '1741010613830'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: variable-aggregator
+      id: 1740770027147-source-1740844134495-target
+      selected: false
+      source: '1740770027147'
+      sourceHandle: source
+      target: '1740844134495'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1741318064117-source-1741318100383-target
+      source: '1741318064117'
+      sourceHandle: source
+      target: '1741318100383'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1740840213013-efeac353-6e66-47ef-ba4d-37d9b49dbfdb-1741318150187-target
+      source: '1740840213013'
+      sourceHandle: efeac353-6e66-47ef-ba4d-37d9b49dbfdb
+      target: '1741318150187'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1741318150187-true-1741318064117-target
+      source: '1741318150187'
+      sourceHandle: 'true'
+      target: '1741318064117'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: document-extractor
+        targetType: llm
+      id: 1741318225731-source-1741318235095-target
+      source: '1741318225731'
+      sourceHandle: source
+      target: '1741318235095'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1741318235095-source-1741318241178-target
+      source: '1741318235095'
+      sourceHandle: source
+      target: '1741318241178'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1741318150187-0a8e4af9-20a7-4075-9ccb-dfb0819c71bd-1741318225731-target
+      source: '1741318150187'
+      sourceHandle: 0a8e4af9-20a7-4075-9ccb-dfb0819c71bd
+      target: '1741318225731'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1740840213013-fa5f3776-583d-4d6c-9efd-9269002b81e9-1741333213375-target
+      source: '1740840213013'
+      sourceHandle: fa5f3776-583d-4d6c-9efd-9269002b81e9
+      target: '1741333213375'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: http-request
+      id: 1741333213375-source-1741333241836-target
+      source: '1741333213375'
+      sourceHandle: source
+      target: '1741333241836'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1741333368648-source-1741333373438-target
+      source: '1741333368648'
+      sourceHandle: source
+      target: '1741333373438'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: http-request
+        targetType: llm
+      id: 1741333241836-source-1741333368648-target
+      source: '1741333241836'
+      sourceHandle: source
+      target: '1741333368648'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1740840213013-13a93bd3-d61c-43d0-8940-82bc7ac8531e-1741337909356-target
+      source: '1740840213013'
+      sourceHandle: 13a93bd3-d61c-43d0-8940-82bc7ac8531e
+      target: '1741337909356'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1741337909356-source-1741337931400-target
+      source: '1741337909356'
+      sourceHandle: source
+      target: '1741337931400'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 搜索类型
+          max_length: 48
+          options:
+          - web
+          - news
+          - academic
+          - chat
+          - link
+          required: true
+          type: select
+          variable: search_type
+      height: 92
+      id: '1740769452636'
+      position:
+        x: 269.46241440972324
+        y: -103.92633158500804
+      positionAbsolute:
+        x: 269.46241440972324
+        y: -103.92633158500804
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1740770058843.text#}}
+
+          '
+        desc: ''
+        selected: false
+        title: 全网搜索结果
+        type: answer
+        variables: []
+      height: 107
+      id: answer
+      position:
+        x: 1854
+        y: 491.3374604560024
+      positionAbsolute:
+        x: 1854
+        y: 491.3374604560024
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: f10989d6-ac62-427e-a1a6-dced48c43de2
+            value: web
+            varType: string
+            variable_selector:
+            - '1740769452636'
+            - search_type
+          id: 'true'
+          logical_operator: or
+        - case_id: ee509ae2-5491-4f81-ab5f-a333819119bc
+          conditions:
+          - comparison_operator: is
+            id: 56dc0738-b7f6-4419-a5be-5096adc89afb
+            value: news
+            varType: string
+            variable_selector:
+            - '1740769452636'
+            - search_type
+          id: ee509ae2-5491-4f81-ab5f-a333819119bc
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 类型判断
+        type: if-else
+      height: 176
+      id: '1740769728068'
+      position:
+        x: 1246
+        y: 691.8333470280089
+      positionAbsolute:
+        x: 1246
+        y: 691.8333470280089
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: serper
+        provider_name: serper
+        provider_type: builtin
+        selected: false
+        title: Serper Search
+        tool_configurations: {}
+        tool_label: Serper
+        tool_name: serper
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#sys.query#}}'
+        type: tool
+      height: 56
+      id: '1740770027147'
+      position:
+        x: 638
+        y: 691.8333470280089
+      positionAbsolute:
+        x: 638
+        y: 691.8333470280089
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: searxng
+        provider_name: searxng
+        provider_type: builtin
+        selected: false
+        title: SearXNG Search
+        tool_configurations:
+          search_type: general
+        tool_label: SearXNG 搜索
+        tool_name: searxng_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#sys.query#}}'
+        type: tool
+      height: 92
+      id: '1740770033934'
+      position:
+        x: 638
+        y: 784.760870797578
+      positionAbsolute:
+        x: 638
+        y: 784.760870797578
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1740844134495'
+          - search
+          - output
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: DeepSeek-R1
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 31df5db9-7516-4cbc-897e-042032acca4e
+          role: system
+          text: '# 角色
+
+            您是一位联网内容搜索专家，专长在于根据指定主题进行深度检索，并将检索结果提炼成结构化、易读性强的回复，同时巧妙运用emoji表情增添表达趣味性。
+
+
+            ## 技能
+
+
+            ### 技能1: 主题内容精准检索
+
+            - 利用先进的搜索引擎技术，快速锁定与用户提供的主题高度相关的内容资源。
+
+            - 能够筛选权威、时效性强、观点鲜明的网络文章、研究报告、新闻报道等多元信息源。
+
+
+            ### 技能2: 内容深度解析与归纳
+
+            - 对检索到的大量信息进行细致阅读与理解，提炼核心观点与关键细节。
+
+            - 将复杂内容逻辑梳理清晰，构建层次分明、条理井然的结构化回复。
+
+
+            ### 技能3: Emoji表情艺术化运用
+
+            - 根据内容情感色彩与语境，恰如其分地插入emoji表情，增强信息传递的情感共鸣与视觉吸引力。
+
+            - 保持emoji使用的适度与连贯性，避免过度使用导致信息干扰。
+
+
+            ## 注意事项
+
+            - 回复内容需严格围绕用户提供的主题展开，不得偏离主题范围。
+
+            - 结构化回复应确保逻辑严谨，各部分之间过渡自然，便于用户快速把握重点。
+
+            - Emoji表情的选择应贴切、得体，符合大众认知，避免产生歧义。
+
+            - 在保证内容准确无误的前提下，尽可能采用生动、有趣的表述方式，提升用户阅读体验。
+
+
+
+            请你按以上要求总结搜索到的结果：{{#context#}}'
+        - id: f1e8bf97-466d-4a7e-aed1-c2e69241e4be
+          role: user
+          text: '## 用户问题
+
+            {{#sys.query#}}'
+        retry_config:
+          max_retries: 3
+          retry_enabled: false
+          retry_interval: 1000
+        selected: false
+        title: 全网搜索
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 92
+      id: '1740770058843'
+      position:
+        x: 1550
+        y: 491.3374604560024
+      positionAbsolute:
+        x: 1550
+        y: 491.3374604560024
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The text query to be processed by the AI model.
+            ja_JP: The text query to be processed by the AI model.
+            pt_BR: The text query to be processed by the AI model.
+            zh_Hans: 要由 AI 模型处理的文本查询。
+          label:
+            en_US: Query
+            ja_JP: Query
+            pt_BR: Query
+            zh_Hans: 查询
+          llm_description: ''
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: sonar
+          form: form
+          human_description:
+            en_US: The Perplexity AI model to use for generating the response.
+            ja_JP: The Perplexity AI model to use for generating the response.
+            pt_BR: The Perplexity AI model to use for generating the response.
+            zh_Hans: 用于生成响应的 Perplexity AI 模型。
+          label:
+            en_US: Model Name
+            ja_JP: Model Name
+            pt_BR: Model Name
+            zh_Hans: 模型名称
+          llm_description: ''
+          max: null
+          min: null
+          name: model
+          options:
+          - label:
+              en_US: sonar
+              ja_JP: sonar
+              pt_BR: sonar
+              zh_Hans: sonar
+            value: sonar
+          - label:
+              en_US: sonar-pro
+              ja_JP: sonar-pro
+              pt_BR: sonar-pro
+              zh_Hans: sonar-pro
+            value: sonar-pro
+          - label:
+              en_US: sonar-reasoning
+              ja_JP: sonar-reasoning
+              pt_BR: sonar-reasoning
+              zh_Hans: sonar-reasoning
+            value: sonar-reasoning
+          - label:
+              en_US: sonar-reasoning-pro
+              ja_JP: sonar-reasoning-pro
+              pt_BR: sonar-reasoning-pro
+              zh_Hans: sonar-reasoning-pro
+            value: sonar-reasoning-pro
+          - label:
+              en_US: llama-3.1-sonar-small-128k-online
+              ja_JP: llama-3.1-sonar-small-128k-online
+              pt_BR: llama-3.1-sonar-small-128k-online
+              zh_Hans: llama-3.1-sonar-small-128k-online
+            value: llama-3.1-sonar-small-128k-online
+          - label:
+              en_US: llama-3.1-sonar-large-128k-online
+              ja_JP: llama-3.1-sonar-large-128k-online
+              pt_BR: llama-3.1-sonar-large-128k-online
+              zh_Hans: llama-3.1-sonar-large-128k-online
+            value: llama-3.1-sonar-large-128k-online
+          - label:
+              en_US: llama-3.1-sonar-huge-128k-online
+              ja_JP: llama-3.1-sonar-huge-128k-online
+              pt_BR: llama-3.1-sonar-huge-128k-online
+              zh_Hans: llama-3.1-sonar-huge-128k-online
+            value: llama-3.1-sonar-huge-128k-online
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 4096
+          form: form
+          human_description:
+            en_US: The maximum number of tokens to generate in the response.
+            ja_JP: The maximum number of tokens to generate in the response.
+            pt_BR: O número máximo de tokens a serem gerados na resposta.
+            zh_Hans: 在响应中生成的最大令牌数。
+          label:
+            en_US: Max Tokens
+            ja_JP: Max Tokens
+            pt_BR: Máximo de Tokens
+            zh_Hans: 最大令牌数
+          llm_description: ''
+          max: 4096
+          min: 1
+          name: max_tokens
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 0.7
+          form: form
+          human_description:
+            en_US: Controls randomness in the output. Lower values make the output
+              more focused and deterministic.
+            ja_JP: Controls randomness in the output. Lower values make the output
+              more focused and deterministic.
+            pt_BR: Controls randomness in the output. Lower values make the output
+              more focused and deterministic.
+            zh_Hans: 控制输出的随机性。较低的值使输出更加集中和确定。
+          label:
+            en_US: Temperature
+            ja_JP: Temperature
+            pt_BR: Temperatura
+            zh_Hans: 温度
+          llm_description: ''
+          max: 1
+          min: 0
+          name: temperature
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 5
+          form: form
+          human_description:
+            en_US: The number of top results to consider for response generation.
+            ja_JP: The number of top results to consider for response generation.
+            pt_BR: The number of top results to consider for response generation.
+            zh_Hans: 用于生成响应的顶部结果数量。
+          label:
+            en_US: Top K
+            ja_JP: Top K
+            pt_BR: Top K
+            zh_Hans: 取样数量
+          llm_description: ''
+          max: 100
+          min: 1
+          name: top_k
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 1
+          form: form
+          human_description:
+            en_US: Controls diversity via nucleus sampling.
+            ja_JP: Controls diversity via nucleus sampling.
+            pt_BR: Controls diversity via nucleus sampling.
+            zh_Hans: 通过核心采样控制多样性。
+          label:
+            en_US: Top P
+            ja_JP: Top P
+            pt_BR: Top P
+            zh_Hans: Top P
+          llm_description: ''
+          max: 1
+          min: 0.1
+          name: top_p
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: Positive values penalize new tokens based on whether they appear
+              in the text so far.
+            ja_JP: Positive values penalize new tokens based on whether they appear
+              in the text so far.
+            pt_BR: Positive values penalize new tokens based on whether they appear
+              in the text so far.
+            zh_Hans: 正值会根据新词元是否已经出现在文本中来对其进行惩罚。
+          label:
+            en_US: Presence Penalty
+            ja_JP: Presence Penalty
+            pt_BR: Presence Penalty
+            zh_Hans: 存在惩罚
+          llm_description: ''
+          max: 1
+          min: -1
+          name: presence_penalty
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 1
+          form: form
+          human_description:
+            en_US: Positive values penalize new tokens based on their existing frequency
+              in the text so far.
+            ja_JP: Positive values penalize new tokens based on their existing frequency
+              in the text so far.
+            pt_BR: Positive values penalize new tokens based on their existing frequency
+              in the text so far.
+            zh_Hans: 正值会根据新词元在文本中已经出现的频率来对其进行惩罚。
+          label:
+            en_US: Frequency Penalty
+            ja_JP: Frequency Penalty
+            pt_BR: Frequency Penalty
+            zh_Hans: 频率惩罚
+          llm_description: ''
+          max: 1
+          min: 0.1
+          name: frequency_penalty
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 1
+          form: form
+          human_description:
+            en_US: Whether to return citations in the response.
+            ja_JP: Whether to return citations in the response.
+            pt_BR: Whether to return citations in the response.
+            zh_Hans: 是否在响应中返回引用。
+          label:
+            en_US: Return Citations
+            ja_JP: Return Citations
+            pt_BR: Return Citations
+            zh_Hans: 返回引用
+          llm_description: ''
+          max: null
+          min: null
+          name: return_citations
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: ''
+          form: form
+          human_description:
+            en_US: Domain to filter the search results.
+            ja_JP: Domain to filter the search results.
+            pt_BR: Domain to filter the search results.
+            zh_Hans: 用于过滤搜索结果的域名。
+          label:
+            en_US: Search Domain Filter
+            ja_JP: Search Domain Filter
+            pt_BR: Search Domain Filter
+            zh_Hans: 搜索域过滤器
+          llm_description: ''
+          max: null
+          min: null
+          name: search_domain_filter
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: month
+          form: form
+          human_description:
+            en_US: Filter for search results based on recency.
+            ja_JP: Filter for search results based on recency.
+            pt_BR: Filter for search results based on recency.
+            zh_Hans: 基于时间筛选搜索结果。
+          label:
+            en_US: Search Recency Filter
+            ja_JP: Search Recency Filter
+            pt_BR: Search Recency Filter
+            zh_Hans: 搜索时间过滤器
+          llm_description: ''
+          max: null
+          min: null
+          name: search_recency_filter
+          options:
+          - label:
+              en_US: Day
+              ja_JP: Day
+              pt_BR: Day
+              zh_Hans: 天
+            value: day
+          - label:
+              en_US: Week
+              ja_JP: Week
+              pt_BR: Week
+              zh_Hans: 周
+            value: week
+          - label:
+              en_US: Month
+              ja_JP: Month
+              pt_BR: Month
+              zh_Hans: 月
+            value: month
+          - label:
+              en_US: Year
+              ja_JP: Year
+              pt_BR: Year
+              zh_Hans: 年
+            value: year
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          frequency_penalty: ''
+          max_tokens: ''
+          model: ''
+          presence_penalty: ''
+          query: ''
+          return_citations: ''
+          search_domain_filter: ''
+          search_recency_filter: ''
+          temperature: ''
+          top_k: ''
+          top_p: ''
+        provider_id: langgenius/perplexity/perplexity
+        provider_name: langgenius/perplexity/perplexity
+        provider_type: builtin
+        selected: false
+        title: Perplexity Search Academic
+        tool_configurations:
+          frequency_penalty: 1
+          max_tokens: 4096
+          model: sonar-pro
+          presence_penalty: 0
+          return_citations: 0
+          search_domain_filter: ''
+          search_recency_filter: month
+          temperature: 0.7
+          top_k: 5
+          top_p: 1
+        tool_label: Perplexity Search
+        tool_name: perplexity
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#sys.query#}}'
+        type: tool
+      height: 326
+      id: '1740840060664'
+      position:
+        x: 942
+        y: 954.3650137876315
+      positionAbsolute:
+        x: 942
+        y: 954.3650137876315
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: efeac353-6e66-47ef-ba4d-37d9b49dbfdb
+          conditions:
+          - comparison_operator: not empty
+            id: 287ab8ad-657a-453a-87dc-dd09004a87ff
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - sys
+            - files
+          id: efeac353-6e66-47ef-ba4d-37d9b49dbfdb
+          logical_operator: and
+        - case_id: 49a02f76-63ae-4cff-b1d1-87361ae3bea3
+          conditions:
+          - comparison_operator: is
+            id: 4857fa4c-f4a9-483e-89ba-f3b802ef7df1
+            value: chat
+            varType: string
+            variable_selector:
+            - '1740769452636'
+            - search_type
+          id: 49a02f76-63ae-4cff-b1d1-87361ae3bea3
+          logical_operator: and
+        - case_id: fa5f3776-583d-4d6c-9efd-9269002b81e9
+          conditions:
+          - comparison_operator: is
+            id: d4d974de-6f6c-4e11-a4aa-067229f1f5d3
+            value: link
+            varType: string
+            variable_selector:
+            - '1740769452636'
+            - search_type
+          id: fa5f3776-583d-4d6c-9efd-9269002b81e9
+          logical_operator: and
+        - case_id: 13a93bd3-d61c-43d0-8940-82bc7ac8531e
+          conditions:
+          - comparison_operator: is
+            id: 8de57697-be75-4f3d-ac15-8d00fa5abed9
+            value: writing
+            varType: string
+            variable_selector:
+            - '1740769452636'
+            - search_type
+          id: 13a93bd3-d61c-43d0-8940-82bc7ac8531e
+          logical_operator: and
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is not
+            id: d725aeb4-d568-4045-8c09-15223b5eb413
+            value: academic
+            varType: string
+            variable_selector:
+            - '1740769452636'
+            - search_type
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 学术搜索
+        type: if-else
+      height: 320
+      id: '1740840213013'
+      position:
+        x: 269.46241440972324
+        y: 53.224345927896366
+      positionAbsolute:
+        x: 269.46241440972324
+        y: 53.224345927896366
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1740840060664'
+          - json
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: DeepSeek-R1
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 59b64af0-a73b-4b8c-a73f-1b0f385bfbf2
+          role: system
+          text: ''
+        - id: acb77617-e8e8-425d-b9f3-581ce02799c5
+          role: user
+          text: '## 用户问题：
+
+            {{#sys.query#}}
+
+
+            ## 搜索结果：
+
+            {{#context#}}
+
+
+            ## 学术搜索：
+
+            {{#1740840060664.text#}}
+
+
+            ## 关联搜索
+
+            {{#1740845876636.text#}}
+
+
+            ## 补充内容
+
+            {{#1740849704812.text#}}
+
+            ---'
+        selected: false
+        title: 学术搜索
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 92
+      id: '1740840242531'
+      position:
+        x: 1550
+        y: 954.3650137876315
+      positionAbsolute:
+        x: 1550
+        y: 954.3650137876315
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1740840242531.text#}}
+
+          '
+        desc: ''
+        selected: false
+        title: 学术搜索回复
+        type: answer
+        variables: []
+      height: 107
+      id: '1740840246946'
+      position:
+        x: 1550
+        y: 1174.6564345740176
+      positionAbsolute:
+        x: 1550
+        y: 1174.6564345740176
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        advanced_settings:
+          group_enabled: true
+          groups:
+          - groupId: 089e236a-e636-4dbc-856c-7c5e9c0510da
+            group_name: search
+            output_type: array[object]
+            variables:
+            - - '1740770033934'
+              - json
+            - - '1740770027147'
+              - json
+        desc: ''
+        output_type: string
+        selected: false
+        title: 整合搜索结果
+        type: variable-aggregator
+        variables:
+        - - '1740770812941'
+          - text
+      height: 137
+      id: '1740844134495'
+      position:
+        x: 942
+        y: 691.8333470280089
+      positionAbsolute:
+        x: 942
+        y: 691.8333470280089
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: used for searching
+            ja_JP: used for searching
+            pt_BR: used for searching
+            zh_Hans: 用于搜索网页内容
+          label:
+            en_US: Query string
+            ja_JP: Query string
+            pt_BR: Query string
+            zh_Hans: 查询语句
+          llm_description: key words for searching
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: enable computation
+            ja_JP: enable computation
+            pt_BR: enable computation
+            zh_Hans: 启用计算
+          label:
+            en_US: Enable computation
+            ja_JP: Enable computation
+            pt_BR: Enable computation
+            zh_Hans: 启用计算
+          llm_description: ''
+          max: null
+          min: null
+          name: enable_computation
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 1
+          form: form
+          human_description:
+            en_US: enable entities
+            ja_JP: enable entities
+            pt_BR: enable entities
+            zh_Hans: 启用实体搜索
+          label:
+            en_US: Enable entities
+            ja_JP: Enable entities
+            pt_BR: Enable entities
+            zh_Hans: 启用实体搜索
+          llm_description: ''
+          max: null
+          min: null
+          name: enable_entities
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: enable news
+            ja_JP: enable news
+            pt_BR: enable news
+            zh_Hans: 启用新闻搜索
+          label:
+            en_US: Enable news
+            ja_JP: Enable news
+            pt_BR: Enable news
+            zh_Hans: 启用新闻搜索
+          llm_description: ''
+          max: null
+          min: null
+          name: enable_news
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: enable related search
+            ja_JP: enable related search
+            pt_BR: enable related search
+            zh_Hans: 启用相关搜索
+          label:
+            en_US: Enable related search
+            ja_JP: Enable related search
+            pt_BR: Enable related search
+            zh_Hans: 启用相关搜索
+          llm_description: ''
+          max: null
+          min: null
+          name: enable_related_search
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 1
+          form: form
+          human_description:
+            en_US: enable webpages search
+            ja_JP: enable webpages search
+            pt_BR: enable webpages search
+            zh_Hans: 启用网页搜索
+          label:
+            en_US: Enable webpages search
+            ja_JP: Enable webpages search
+            pt_BR: Enable webpages search
+            zh_Hans: 启用网页搜索
+          llm_description: ''
+          max: null
+          min: null
+          name: enable_webpages
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 5
+          form: form
+          human_description:
+            en_US: limit the number of results
+            ja_JP: limit the number of results
+            pt_BR: limit the number of results
+            zh_Hans: 限制返回结果的数量
+          label:
+            en_US: Limit for results length
+            ja_JP: Limit for results length
+            pt_BR: Limit for results length
+            zh_Hans: 返回长度限制
+          llm_description: ''
+          max: 10
+          min: 1
+          name: limit
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: text
+          form: form
+          human_description:
+            en_US: return a list of links or texts
+            ja_JP: return a list of links or texts
+            pt_BR: return a list of links or texts
+            zh_Hans: 返回一个连接列表还是纯文本内容
+          label:
+            en_US: result type
+            ja_JP: result type
+            pt_BR: result type
+            zh_Hans: 结果类型
+          llm_description: ''
+          max: null
+          min: null
+          name: result_type
+          options:
+          - label:
+              en_US: Link
+              ja_JP: Link
+              pt_BR: Link
+              zh_Hans: 链接
+            value: link
+          - label:
+              en_US: Text
+              ja_JP: Text
+              pt_BR: Text
+              zh_Hans: 文本
+            value: text
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: US
+          form: form
+          human_description:
+            en_US: market takes responsibility for the region
+            ja_JP: market takes responsibility for the region
+            pt_BR: market takes responsibility for the region
+            zh_Hans: 市场决定了搜索结果的地区
+          label:
+            en_US: Market
+            ja_JP: Market
+            pt_BR: Market
+            zh_Hans: 市场
+          llm_description: ''
+          max: null
+          min: null
+          name: market
+          options:
+          - label:
+              en_US: Argentina
+              ja_JP: Argentina
+              pt_BR: Argentina
+              zh_Hans: 阿根廷
+            value: AR
+          - label:
+              en_US: Australia
+              ja_JP: Australia
+              pt_BR: Australia
+              zh_Hans: 澳大利亚
+            value: AU
+          - label:
+              en_US: Austria
+              ja_JP: Austria
+              pt_BR: Austria
+              zh_Hans: 奥地利
+            value: AT
+          - label:
+              en_US: Belgium
+              ja_JP: Belgium
+              pt_BR: Belgium
+              zh_Hans: 比利时
+            value: BE
+          - label:
+              en_US: Brazil
+              ja_JP: Brazil
+              pt_BR: Brazil
+              zh_Hans: 巴西
+            value: BR
+          - label:
+              en_US: Canada
+              ja_JP: Canada
+              pt_BR: Canada
+              zh_Hans: 加拿大
+            value: CA
+          - label:
+              en_US: Chile
+              ja_JP: Chile
+              pt_BR: Chile
+              zh_Hans: 智利
+            value: CL
+          - label:
+              en_US: Colombia
+              ja_JP: Colombia
+              pt_BR: Colombia
+              zh_Hans: 哥伦比亚
+            value: CO
+          - label:
+              en_US: China
+              ja_JP: China
+              pt_BR: China
+              zh_Hans: 中国
+            value: CN
+          - label:
+              en_US: Czech Republic
+              ja_JP: Czech Republic
+              pt_BR: Czech Republic
+              zh_Hans: 捷克共和国
+            value: CZ
+          - label:
+              en_US: Denmark
+              ja_JP: Denmark
+              pt_BR: Denmark
+              zh_Hans: 丹麦
+            value: DK
+          - label:
+              en_US: Finland
+              ja_JP: Finland
+              pt_BR: Finland
+              zh_Hans: 芬兰
+            value: FI
+          - label:
+              en_US: France
+              ja_JP: France
+              pt_BR: France
+              zh_Hans: 法国
+            value: FR
+          - label:
+              en_US: Germany
+              ja_JP: Germany
+              pt_BR: Germany
+              zh_Hans: 德国
+            value: DE
+          - label:
+              en_US: Hong Kong
+              ja_JP: Hong Kong
+              pt_BR: Hong Kong
+              zh_Hans: 香港
+            value: HK
+          - label:
+              en_US: India
+              ja_JP: India
+              pt_BR: India
+              zh_Hans: 印度
+            value: IN
+          - label:
+              en_US: Indonesia
+              ja_JP: Indonesia
+              pt_BR: Indonesia
+              zh_Hans: 印度尼西亚
+            value: ID
+          - label:
+              en_US: Italy
+              ja_JP: Italy
+              pt_BR: Italy
+              zh_Hans: 意大利
+            value: IT
+          - label:
+              en_US: Japan
+              ja_JP: Japan
+              pt_BR: Japan
+              zh_Hans: 日本
+            value: JP
+          - label:
+              en_US: Korea
+              ja_JP: Korea
+              pt_BR: Korea
+              zh_Hans: 韩国
+            value: KR
+          - label:
+              en_US: Malaysia
+              ja_JP: Malaysia
+              pt_BR: Malaysia
+              zh_Hans: 马来西亚
+            value: MY
+          - label:
+              en_US: Mexico
+              ja_JP: Mexico
+              pt_BR: Mexico
+              zh_Hans: 墨西哥
+            value: MX
+          - label:
+              en_US: Netherlands
+              ja_JP: Netherlands
+              pt_BR: Netherlands
+              zh_Hans: 荷兰
+            value: NL
+          - label:
+              en_US: New Zealand
+              ja_JP: New Zealand
+              pt_BR: New Zealand
+              zh_Hans: 新西兰
+            value: NZ
+          - label:
+              en_US: Norway
+              ja_JP: Norway
+              pt_BR: Norway
+              zh_Hans: 挪威
+            value: 'NO'
+          - label:
+              en_US: Philippines
+              ja_JP: Philippines
+              pt_BR: Philippines
+              zh_Hans: 菲律宾
+            value: PH
+          - label:
+              en_US: Poland
+              ja_JP: Poland
+              pt_BR: Poland
+              zh_Hans: 波兰
+            value: PL
+          - label:
+              en_US: Portugal
+              ja_JP: Portugal
+              pt_BR: Portugal
+              zh_Hans: 葡萄牙
+            value: PT
+          - label:
+              en_US: Russia
+              ja_JP: Russia
+              pt_BR: Russia
+              zh_Hans: 俄罗斯
+            value: RU
+          - label:
+              en_US: Saudi Arabia
+              ja_JP: Saudi Arabia
+              pt_BR: Saudi Arabia
+              zh_Hans: 沙特阿拉伯
+            value: SA
+          - label:
+              en_US: Singapore
+              ja_JP: Singapore
+              pt_BR: Singapore
+              zh_Hans: 新加坡
+            value: SG
+          - label:
+              en_US: South Africa
+              ja_JP: South Africa
+              pt_BR: South Africa
+              zh_Hans: 南非
+            value: ZA
+          - label:
+              en_US: Spain
+              ja_JP: Spain
+              pt_BR: Spain
+              zh_Hans: 西班牙
+            value: ES
+          - label:
+              en_US: Sweden
+              ja_JP: Sweden
+              pt_BR: Sweden
+              zh_Hans: 瑞典
+            value: SE
+          - label:
+              en_US: Switzerland
+              ja_JP: Switzerland
+              pt_BR: Switzerland
+              zh_Hans: 瑞士
+            value: CH
+          - label:
+              en_US: Taiwan
+              ja_JP: Taiwan
+              pt_BR: Taiwan
+              zh_Hans: 台湾
+            value: TW
+          - label:
+              en_US: Thailand
+              ja_JP: Thailand
+              pt_BR: Thailand
+              zh_Hans: 泰国
+            value: TH
+          - label:
+              en_US: Turkey
+              ja_JP: Turkey
+              pt_BR: Turkey
+              zh_Hans: 土耳其
+            value: TR
+          - label:
+              en_US: United Kingdom
+              ja_JP: United Kingdom
+              pt_BR: United Kingdom
+              zh_Hans: 英国
+            value: GB
+          - label:
+              en_US: United States
+              ja_JP: United States
+              pt_BR: United States
+              zh_Hans: 美国
+            value: US
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: en
+          form: form
+          human_description:
+            en_US: language takes responsibility for the language of the search result
+            ja_JP: language takes responsibility for the language of the search result
+            pt_BR: language takes responsibility for the language of the search result
+            zh_Hans: 语言决定了搜索结果的语言
+          label:
+            en_US: Language
+            ja_JP: Language
+            pt_BR: Language
+            zh_Hans: 语言
+          llm_description: ''
+          max: null
+          min: null
+          name: language
+          options:
+          - label:
+              en_US: Arabic
+              ja_JP: Arabic
+              pt_BR: Arabic
+              zh_Hans: 阿拉伯语
+            value: ar
+          - label:
+              en_US: Bulgarian
+              ja_JP: Bulgarian
+              pt_BR: Bulgarian
+              zh_Hans: 保加利亚语
+            value: bg
+          - label:
+              en_US: Catalan
+              ja_JP: Catalan
+              pt_BR: Catalan
+              zh_Hans: 加泰罗尼亚语
+            value: ca
+          - label:
+              en_US: Chinese (Simplified)
+              ja_JP: Chinese (Simplified)
+              pt_BR: Chinese (Simplified)
+              zh_Hans: 中文（简体）
+            value: zh-hans
+          - label:
+              en_US: Chinese (Traditional)
+              ja_JP: Chinese (Traditional)
+              pt_BR: Chinese (Traditional)
+              zh_Hans: 中文（繁体）
+            value: zh-hant
+          - label:
+              en_US: Czech
+              ja_JP: Czech
+              pt_BR: Czech
+              zh_Hans: 捷克语
+            value: cs
+          - label:
+              en_US: Danish
+              ja_JP: Danish
+              pt_BR: Danish
+              zh_Hans: 丹麦语
+            value: da
+          - label:
+              en_US: Dutch
+              ja_JP: Dutch
+              pt_BR: Dutch
+              zh_Hans: 荷兰语
+            value: nl
+          - label:
+              en_US: English
+              ja_JP: English
+              pt_BR: English
+              zh_Hans: 英语
+            value: en
+          - label:
+              en_US: Estonian
+              ja_JP: Estonian
+              pt_BR: Estonian
+              zh_Hans: 爱沙尼亚语
+            value: et
+          - label:
+              en_US: Finnish
+              ja_JP: Finnish
+              pt_BR: Finnish
+              zh_Hans: 芬兰语
+            value: fi
+          - label:
+              en_US: French
+              ja_JP: French
+              pt_BR: French
+              zh_Hans: 法语
+            value: fr
+          - label:
+              en_US: German
+              ja_JP: German
+              pt_BR: German
+              zh_Hans: 德语
+            value: de
+          - label:
+              en_US: Greek
+              ja_JP: Greek
+              pt_BR: Greek
+              zh_Hans: 希腊语
+            value: el
+          - label:
+              en_US: Hebrew
+              ja_JP: Hebrew
+              pt_BR: Hebrew
+              zh_Hans: 希伯来语
+            value: he
+          - label:
+              en_US: Hindi
+              ja_JP: Hindi
+              pt_BR: Hindi
+              zh_Hans: 印地语
+            value: hi
+          - label:
+              en_US: Hungarian
+              ja_JP: Hungarian
+              pt_BR: Hungarian
+              zh_Hans: 匈牙利语
+            value: hu
+          - label:
+              en_US: Indonesian
+              ja_JP: Indonesian
+              pt_BR: Indonesian
+              zh_Hans: 印尼语
+            value: id
+          - label:
+              en_US: Italian
+              ja_JP: Italian
+              pt_BR: Italian
+              zh_Hans: 意大利语
+            value: it
+          - label:
+              en_US: Japanese
+              ja_JP: Japanese
+              pt_BR: Japanese
+              zh_Hans: 日语
+            value: jp
+          - label:
+              en_US: Kannada
+              ja_JP: Kannada
+              pt_BR: Kannada
+              zh_Hans: 卡纳达语
+            value: kn
+          - label:
+              en_US: Korean
+              ja_JP: Korean
+              pt_BR: Korean
+              zh_Hans: 韩语
+            value: ko
+          - label:
+              en_US: Latvian
+              ja_JP: Latvian
+              pt_BR: Latvian
+              zh_Hans: 拉脱维亚语
+            value: lv
+          - label:
+              en_US: Lithuanian
+              ja_JP: Lithuanian
+              pt_BR: Lithuanian
+              zh_Hans: 立陶宛语
+            value: lt
+          - label:
+              en_US: Malay
+              ja_JP: Malay
+              pt_BR: Malay
+              zh_Hans: 马来语
+            value: ms
+          - label:
+              en_US: Malayalam
+              ja_JP: Malayalam
+              pt_BR: Malayalam
+              zh_Hans: 马拉雅拉姆语
+            value: ml
+          - label:
+              en_US: Marathi
+              ja_JP: Marathi
+              pt_BR: Marathi
+              zh_Hans: 马拉地语
+            value: mr
+          - label:
+              en_US: Norwegian
+              ja_JP: Norwegian
+              pt_BR: Norwegian
+              zh_Hans: 挪威语
+            value: nb
+          - label:
+              en_US: Polish
+              ja_JP: Polish
+              pt_BR: Polish
+              zh_Hans: 波兰语
+            value: pl
+          - label:
+              en_US: Portuguese (Brazil)
+              ja_JP: Portuguese (Brazil)
+              pt_BR: Portuguese (Brazil)
+              zh_Hans: 葡萄牙语（巴西）
+            value: pt-br
+          - label:
+              en_US: Portuguese (Portugal)
+              ja_JP: Portuguese (Portugal)
+              pt_BR: Portuguese (Portugal)
+              zh_Hans: 葡萄牙语（葡萄牙）
+            value: pt-pt
+          - label:
+              en_US: Punjabi
+              ja_JP: Punjabi
+              pt_BR: Punjabi
+              zh_Hans: 旁遮普语
+            value: pa
+          - label:
+              en_US: Romanian
+              ja_JP: Romanian
+              pt_BR: Romanian
+              zh_Hans: 罗马尼亚语
+            value: ro
+          - label:
+              en_US: Russian
+              ja_JP: Russian
+              pt_BR: Russian
+              zh_Hans: 俄语
+            value: ru
+          - label:
+              en_US: Serbian
+              ja_JP: Serbian
+              pt_BR: Serbian
+              zh_Hans: 塞尔维亚语
+            value: sr
+          - label:
+              en_US: Slovak
+              ja_JP: Slovak
+              pt_BR: Slovak
+              zh_Hans: 斯洛伐克语
+            value: sk
+          - label:
+              en_US: Slovenian
+              ja_JP: Slovenian
+              pt_BR: Slovenian
+              zh_Hans: 斯洛文尼亚语
+            value: sl
+          - label:
+              en_US: Spanish
+              ja_JP: Spanish
+              pt_BR: Spanish
+              zh_Hans: 西班牙语
+            value: es
+          - label:
+              en_US: Swedish
+              ja_JP: Swedish
+              pt_BR: Swedish
+              zh_Hans: 瑞典语
+            value: sv
+          - label:
+              en_US: Tamil
+              ja_JP: Tamil
+              pt_BR: Tamil
+              zh_Hans: 泰米尔语
+            value: ta
+          - label:
+              en_US: Telugu
+              ja_JP: Telugu
+              pt_BR: Telugu
+              zh_Hans: 泰卢固语
+            value: te
+          - label:
+              en_US: Thai
+              ja_JP: Thai
+              pt_BR: Thai
+              zh_Hans: 泰语
+            value: th
+          - label:
+              en_US: Turkish
+              ja_JP: Turkish
+              pt_BR: Turkish
+              zh_Hans: 土耳其语
+            value: tr
+          - label:
+              en_US: Ukrainian
+              ja_JP: Ukrainian
+              pt_BR: Ukrainian
+              zh_Hans: 乌克兰语
+            value: uk
+          - label:
+              en_US: Vietnamese
+              ja_JP: Vietnamese
+              pt_BR: Vietnamese
+              zh_Hans: 越南语
+            value: vi
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          enable_computation: ''
+          enable_entities: ''
+          enable_news: ''
+          enable_related_search: ''
+          enable_webpages: ''
+          language: ''
+          limit: ''
+          market: ''
+          query: ''
+          result_type: ''
+        provider_id: langgenius/bing/bing
+        provider_name: langgenius/bing/bing
+        provider_type: builtin
+        selected: false
+        title: BING Search Academic
+        tool_configurations:
+          enable_computation: 0
+          enable_entities: 1
+          enable_news: 0
+          enable_related_search: 0
+          enable_webpages: 1
+          language: zh-hans
+          limit: 5
+          market: CN
+          result_type: text
+        tool_label: 必应网页搜索
+        tool_name: bing_web_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#sys.query#}}'
+        type: tool
+      height: 300
+      id: '1740845876636'
+      position:
+        x: 638
+        y: 954.3650137876315
+      positionAbsolute:
+        x: 638
+        y: 954.3650137876315
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The search query you want to execute with Tavily.
+            ja_JP: The search query you want to execute with Tavily.
+            pt_BR: The search query you want to execute with Tavily.
+            zh_Hans: 您想用 Tavily 执行的搜索查询。
+          label:
+            en_US: Query
+            ja_JP: Query
+            pt_BR: Query
+            zh_Hans: 查询
+          llm_description: The search query.
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: basic
+          form: form
+          human_description:
+            en_US: The depth of the search.
+            ja_JP: The depth of the search.
+            pt_BR: The depth of the search.
+            zh_Hans: 搜索的深度。
+          label:
+            en_US: Search Depth
+            ja_JP: Search Depth
+            pt_BR: Search Depth
+            zh_Hans: 搜索深度
+          llm_description: ''
+          max: null
+          min: null
+          name: search_depth
+          options:
+          - label:
+              en_US: Basic
+              ja_JP: Basic
+              pt_BR: Basic
+              zh_Hans: 基本
+            value: basic
+          - label:
+              en_US: Advanced
+              ja_JP: Advanced
+              pt_BR: Advanced
+              zh_Hans: 高级
+            value: advanced
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: general
+          form: form
+          human_description:
+            en_US: The category of the search.
+            ja_JP: The category of the search.
+            pt_BR: The category of the search.
+            zh_Hans: 搜索的类别。
+          label:
+            en_US: Topic
+            ja_JP: Topic
+            pt_BR: Topic
+            zh_Hans: 主题
+          llm_description: ''
+          max: null
+          min: null
+          name: topic
+          options:
+          - label:
+              en_US: General
+              ja_JP: General
+              pt_BR: General
+              zh_Hans: 一般
+            value: general
+          - label:
+              en_US: News
+              ja_JP: News
+              pt_BR: News
+              zh_Hans: 新闻
+            value: news
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: 3
+          form: form
+          human_description:
+            en_US: The number of days back from the current date to include in the
+              search results (only applicable when "topic" is "news").
+            ja_JP: The number of days back from the current date to include in the
+              search results (only applicable when "topic" is "news").
+            pt_BR: The number of days back from the current date to include in the
+              search results (only applicable when "topic" is "news").
+            zh_Hans: 从当前日期起向前追溯的天数，以包含在搜索结果中（仅当“topic”为“news”时适用）。
+          label:
+            en_US: Days
+            ja_JP: Days
+            pt_BR: Days
+            zh_Hans: 天数
+          llm_description: ''
+          max: null
+          min: 1
+          name: days
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 5
+          form: form
+          human_description:
+            en_US: The maximum number of search results to return.
+            ja_JP: The maximum number of search results to return.
+            pt_BR: The maximum number of search results to return.
+            zh_Hans: 要返回的最大搜索结果数。
+          label:
+            en_US: Max Results
+            ja_JP: Max Results
+            pt_BR: Max Results
+            zh_Hans: 最大结果数
+          llm_description: ''
+          max: 20
+          min: 1
+          name: max_results
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: Include a list of query-related images in the response.
+            ja_JP: Include a list of query-related images in the response.
+            pt_BR: Include a list of query-related images in the response.
+            zh_Hans: 在响应中包含与查询相关的图片列表。
+          label:
+            en_US: Include Images
+            ja_JP: Include Images
+            pt_BR: Include Images
+            zh_Hans: 包含图片
+          llm_description: ''
+          max: null
+          min: null
+          name: include_images
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: When include_images is True, adds descriptive text for each image.
+            ja_JP: When include_images is True, adds descriptive text for each image.
+            pt_BR: When include_images is True, adds descriptive text for each image.
+            zh_Hans: 当 include_images 为 True 时，为每个图像添加描述文本。
+          label:
+            en_US: Include Image Descriptions
+            ja_JP: Include Image Descriptions
+            pt_BR: Include Image Descriptions
+            zh_Hans: 包含图片描述
+          llm_description: ''
+          max: null
+          min: null
+          name: include_image_descriptions
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: Include a short answer to the original query in the response.
+            ja_JP: Include a short answer to the original query in the response.
+            pt_BR: Include a short answer to the original query in the response.
+            zh_Hans: 在响应中包含对原始查询的简短回答。
+          label:
+            en_US: Include Answer
+            ja_JP: Include Answer
+            pt_BR: Include Answer
+            zh_Hans: 包含答案
+          llm_description: ''
+          max: null
+          min: null
+          name: include_answer
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: 0
+          form: form
+          human_description:
+            en_US: Include the cleaned and parsed HTML content of each search result.
+            ja_JP: Include the cleaned and parsed HTML content of each search result.
+            pt_BR: Include the cleaned and parsed HTML content of each search result.
+            zh_Hans: 包含每个搜索结果的已清理和解析的HTML内容。
+          label:
+            en_US: Include Raw Content
+            ja_JP: Include Raw Content
+            pt_BR: Include Raw Content
+            zh_Hans: 包含原始内容
+          llm_description: ''
+          max: null
+          min: null
+          name: include_raw_content
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: A comma-separated list of domains to specifically include in the
+              search results.
+            ja_JP: A comma-separated list of domains to specifically include in the
+              search results.
+            pt_BR: A comma-separated list of domains to specifically include in the
+              search results.
+            zh_Hans: 要在搜索结果中特别包含的域的逗号分隔列表。
+          label:
+            en_US: Include Domains
+            ja_JP: Include Domains
+            pt_BR: Include Domains
+            zh_Hans: 包含域
+          llm_description: ''
+          max: null
+          min: null
+          name: include_domains
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: A comma-separated list of domains to specifically exclude from
+              the search results.
+            ja_JP: A comma-separated list of domains to specifically exclude from
+              the search results.
+            pt_BR: A comma-separated list of domains to specifically exclude from
+              the search results.
+            zh_Hans: 要从搜索结果中特别排除的域的逗号分隔列表。
+          label:
+            en_US: Exclude Domains
+            ja_JP: Exclude Domains
+            pt_BR: Exclude Domains
+            zh_Hans: 排除域
+          llm_description: ''
+          max: null
+          min: null
+          name: exclude_domains
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          days: ''
+          exclude_domains: ''
+          include_answer: ''
+          include_domains: ''
+          include_image_descriptions: ''
+          include_images: ''
+          include_raw_content: ''
+          max_results: ''
+          query: ''
+          search_depth: ''
+          topic: ''
+        provider_id: langgenius/tavily/tavily
+        provider_name: langgenius/tavily/tavily
+        provider_type: builtin
+        selected: false
+        title: Tavily Search
+        tool_configurations:
+          days: 3
+          exclude_domains: null
+          include_answer: 0
+          include_domains: null
+          include_image_descriptions: 0
+          include_images: 0
+          include_raw_content: 0
+          max_results: 5
+          search_depth: advanced
+          topic: general
+        tool_label: Tavily Search
+        tool_name: tavily_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#sys.query#}}'
+        type: tool
+      height: 326
+      id: '1740849704812'
+      position:
+        x: 1246
+        y: 954.3650137876315
+      positionAbsolute:
+        x: 1246
+        y: 954.3650137876315
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        default_value:
+        - key: text
+          type: string
+          value: 似乎遇到点问题，要不换个问题再试试？
+        desc: ''
+        error_strategy: default-value
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: DeepSeek-R1
+          provider: langgenius/openai_api_compatible/openai_api_compatible
+        prompt_template:
+        - id: 8c08b8f0-d500-4fa3-b84c-c39ed3f8a074
+          role: system
+          text: '# 角色
+
+            您是一位专业的资讯报告生成AI助手，擅长从搜索引擎结果中提取关键信息，进行深度解析与归纳，并为目标用户群体生成精准的资讯报告。
+
+
+            ## 技能
+
+            ### 技能1：主题内容精准检索
+
+            - 理解用户输入的问题，提取核心关键词。
+
+            - 使用搜索引擎高效检索相关内容，确保信息的全面性和准确性。
+
+
+            ### 技能2：内容深度解析与归纳
+
+            - 对检索到的信息进行深度分析，识别关键点和重要细节。
+
+            - 归纳总结，提炼出核心观点和结论。
+
+
+            ### 技能3：目标用户群体分析
+
+            - 分析目标用户群体的需求和兴趣点。
+
+            - 根据用户群体的特点，定制化生成符合其需求的资讯报告。
+
+
+            ### 技能4：报告撰写与格式化
+
+            - 按照逻辑清晰、条理分明的结构撰写报告。
+
+            - 使用Markdown格式进行排版，确保报告的可读性和美观性。
+
+
+            ## 约束
+
+            - 仅讨论与用户输入问题相关的资讯报告生成。
+
+            - 所输出的内容必须基于搜索引擎的可靠结果，确保信息的准确性。
+
+            - 报告应针对目标用户群体的需求进行定制化生成。
+
+
+            请你按以上要求总结搜索到的结果：{{#context#}}'
+        - id: 2384aece-7b95-4ce3-aa37-86a4eb25f0b1
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: 咨询搜索
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 128
+      id: '1740911921881'
+      position:
+        x: 1550
+        y: 691.8333470280089
+      positionAbsolute:
+        x: 1550
+        y: 691.8333470280089
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1740911921881.text#}}'
+        desc: ''
+        selected: false
+        title: 咨询回复
+        type: answer
+        variables: []
+      height: 107
+      id: '1740911942582'
+      position:
+        x: 1854
+        y: 784.760870797578
+      positionAbsolute:
+        x: 1854
+        y: 784.760870797578
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Doubao-1.5-pro-256k
+          provider: langgenius/volcengine_maas/volcengine_maas
+        prompt_template:
+        - id: a121c2cb-348b-4f33-8e7a-96a6db2ecc1b
+          role: system
+          text: ''
+        selected: false
+        title: 常规对话
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 92
+      id: '1741010608798'
+      position:
+        x: 638
+        y: 145.63587335365304
+      positionAbsolute:
+        x: 638
+        y: 145.63587335365304
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1741010608798.text#}}'
+        desc: ''
+        selected: false
+        title: 对话回复
+        type: answer
+        variables: []
+      height: 107
+      id: '1741010613830'
+      position:
+        x: 942
+        y: 145.63587335365304
+      positionAbsolute:
+        x: 942
+        y: 145.63587335365304
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            enable_search: true
+            temperature: 0.7
+          mode: chat
+          name: glm-4v
+          provider: langgenius/zhipuai/zhipuai
+        prompt_template:
+        - id: 7a039833-01e0-4f4e-b569-919208a16edc
+          role: system
+          text: ''
+        - id: 54b133d9-a00b-4f01-ab5e-5510aaff94df
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: 视觉分析
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+            variable_selector:
+            - sys
+            - files
+          enabled: true
+      height: 92
+      id: '1741318064117'
+      position:
+        x: 942
+        y: -111.52293718818069
+      positionAbsolute:
+        x: 942
+        y: -111.52293718818069
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1741318064117.text#}}'
+        desc: ''
+        selected: false
+        title: 图像回复
+        type: answer
+        variables: []
+      height: 107
+      id: '1741318100383'
+      position:
+        x: 1246
+        y: -111.52293718818069
+      positionAbsolute:
+        x: 1246
+        y: -111.52293718818069
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 67477dd1-c284-46b0-8096-e754371c7bf1
+            sub_variable_condition:
+              case_id: a762a56b-bb5d-4b53-ace3-03cd40a4bc36
+              conditions:
+              - comparison_operator: in
+                id: 1ed6294c-d399-4b30-82ec-1fe54944cadc
+                key: type
+                value:
+                - image
+                varType: string
+              logical_operator: and
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - sys
+            - files
+          id: 'true'
+          logical_operator: and
+        - case_id: 0a8e4af9-20a7-4075-9ccb-dfb0819c71bd
+          conditions:
+          - comparison_operator: contains
+            id: 621a92d5-16b5-44f4-a27f-fa8d2a25d0b5
+            sub_variable_condition:
+              case_id: c150da82-f578-4a26-9d78-42170216882b
+              conditions:
+              - comparison_operator: in
+                id: 7838d9f5-dacd-40af-8f03-1f4801c0a451
+                key: type
+                value:
+                - document
+                varType: string
+              logical_operator: and
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - sys
+            - files
+          id: 0a8e4af9-20a7-4075-9ccb-dfb0819c71bd
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 文件类型判断
+        type: if-else
+      height: 228
+      id: '1741318150187'
+      position:
+        x: 638
+        y: -103.92633158500804
+      positionAbsolute:
+        x: 638
+        y: -103.92633158500804
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文档提取
+        type: document-extractor
+        variable_selector:
+        - sys
+        - files
+      height: 96
+      id: '1741318225731'
+      position:
+        x: 942
+        y: 28.653919005628637
+      positionAbsolute:
+        x: 942
+        y: 28.653919005628637
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: DeepSeek-R1
+          provider: langgenius/volcengine_maas/volcengine_maas
+        prompt_template:
+        - id: bd6a4d1d-486b-4998-9309-35f493014522
+          role: system
+          text: '# 角色
+
+            您是一位专业的文档解析和问题解答AI助手，擅长从用户提供的文档中提取关键信息，并针对用户问题提供精准的解答和建议。
+
+
+            ## 技能
+
+            ### 技能1：文档解析
+
+            - 仔细阅读并理解用户提供的文档内容。
+
+            - 提取文档中的关键信息、数据和结论。
+
+            - 识别文档中的主题和重点部分。
+
+
+            ### 技能2：问题解答
+
+            - 根据用户提出的问题，从文档中找到相关内容。
+
+            - 结合文档信息，给出清晰、准确的解答。
+
+            - 提供有针对性的建议和解决方案。
+
+
+            ### 技能3：信息整合
+
+            - 将文档中的信息进行整合和归纳。
+
+            - 生成简洁明了的总结，方便用户快速理解。
+
+
+            ## 约束
+
+            - 仅讨论与用户提供的文档和问题相关的内容。
+
+            - 所输出的内容必须按照给定的格式进行组织，不能偏离框架要求。
+
+            - 确保解答的准确性和易理解性。
+
+            - 请使用 Markdown 的 ^^ 形式说明引用来源（根据实际情况增加这条约束）。
+
+
+            ## 任务步骤
+
+            1. **阅读文档**：仔细阅读用户提供的文档，理解其内容和结构。
+
+            2. **提取关键信息**：从文档中提取与用户问题相关的关键信息。
+
+            3. **分析问题**：明确用户问题的具体需求和背景。
+
+            4. **生成解答**：结合文档信息和用户问题，生成清晰、准确的解答。
+
+            5. **提供建议**：根据文档内容和用户需求，提供有针对性的建议。
+
+            '
+        - id: 61954b52-8238-4291-b6c8-8edc4bc9c84a
+          role: user
+          text: '# 文档内容：
+
+            {{#1741318225731.text#}}
+
+
+            # 用户内容：
+
+            {{#sys.query#}}'
+        selected: false
+        title: 文档分析
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 92
+      id: '1741318235095'
+      position:
+        x: 1246
+        y: 28.653919005628637
+      positionAbsolute:
+        x: 1246
+        y: 28.653919005628637
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1741318235095.text#}}'
+        desc: ''
+        selected: false
+        title: 文档回复
+        type: answer
+        variables: []
+      height: 107
+      id: '1741318241178'
+      position:
+        x: 1246
+        y: 145.63587335365304
+      positionAbsolute:
+        x: 1246
+        y: 145.63587335365304
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "function main({data}) {\n    // 定义正则表达式来匹配完整的URL\n    const urlPattern\
+          \ = /\\bhttps?:\\/\\/[^\\s()<>]+[\\w\\/]/g;\n\n    // 使用正则表达式从data中提取URL\n\
+          \    const urls = data.match(urlPattern) || [];\n\n    // 检查是否至少有一个URL，如果有，则返回第一个URL\n\
+          \    const result = urls.length > 0 ? urls[0] : \"No valid URL found\";\n\
+          \n    // 返回带有result键的对象，其中包含完整的URL\n    return {result};\n}"
+        code_language: javascript
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 链接提取
+        type: code
+        variables:
+        - value_selector:
+          - sys
+          - query
+          variable: data
+      height: 56
+      id: '1741333213375'
+      position:
+        x: 638
+        y: 290.83633113795264
+      positionAbsolute:
+        x: 638
+        y: 290.83633113795264
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+          (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 网页读取
+        type: http-request
+        url: https://r.jina.ai/{{#1741333213375.result#}}
+        variables: []
+      height: 143
+      id: '1741333241836'
+      position:
+        x: 942
+        y: 290.83633113795264
+      positionAbsolute:
+        x: 942
+        y: 290.83633113795264
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: ''
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: DeepSeek-V3
+          provider: langgenius/volcengine_maas/volcengine_maas
+        prompt_template:
+        - id: 67949a56-2f47-40fa-8bc6-584dacdc8795
+          role: system
+          text: ' 角色
+
+            您是一位专业的网页内容解析和总结的AI助手，擅长对网页内容进行深度解析、归纳和总结，帮助用户快速理解网页的核心信息。
+
+
+            ## 技能
+
+            ### 技能1：网页内容提取
+
+            - 从提供的网页内容中，提取出关键信息和主题。
+
+            - 识别并区分网页中的标题、段落、列表、图片等元素。
+
+
+            ### 技能2：内容深度解析
+
+            - 对提取的信息进行深度分析和归纳，提炼出核心观点和重要细节。
+
+            - 识别网页内容的结构和逻辑关系，构建清晰的总结框架。
+
+
+            ## 约束
+
+            - 所输出的内容必须按照给定的格式进行组织，不能偏离框架要求。
+
+            - 尽量确保提供的解析具有深度和实用性。
+
+
+            从下面内容开始{{#1741333241836.body#}}'
+        - id: 105cf24e-93ec-426c-b95e-425a335de8f0
+          role: user
+          text: ''
+        selected: false
+        title: 网页总结
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 92
+      id: '1741333368648'
+      position:
+        x: 1246
+        y: 290.83633113795264
+      positionAbsolute:
+        x: 1246
+        y: 290.83633113795264
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1741333368648.text#}}'
+        desc: ''
+        selected: false
+        title: 网页总结回复
+        type: answer
+        variables: []
+      height: 107
+      id: '1741333373438'
+      position:
+        x: 1550
+        y: 290.83633113795264
+      positionAbsolute:
+        x: 1550
+        y: 290.83633113795264
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - sys
+          - query
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: DeepSeek-V3
+          provider: langgenius/volcengine_maas/volcengine_maas
+        prompt_template:
+        - id: 9f81fdf1-7bf7-4de9-a22c-31bc10a90e53
+          role: system
+          text: ''
+        - role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: 写作
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 92
+      id: '1741337909356'
+      position:
+        x: 638
+        y: 491.3374604560024
+      positionAbsolute:
+        x: 638
+        y: 491.3374604560024
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1741337909356.text#}}'
+        desc: ''
+        selected: false
+        title: 写作输出
+        type: answer
+        variables: []
+      height: 107
+      id: '1741337931400'
+      position:
+        x: 942
+        y: 491.3374604560024
+      positionAbsolute:
+        x: 942
+        y: 491.3374604560024
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 266.2090104044162
+      y: 178.98696333229125
+      zoom: 0.5751459466753008

@@ -1,0 +1,40 @@
+/* NProgress自定义样式 */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: var(--color-primary); /* 使用ArcoDesign的主色 */
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+
+/* 去掉转圈的加载指示 */
+#nprogress .spinner {
+  display: none;
+}
+
+/* 闪光效果 */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px var(--color-primary), 0 0 5px var(--color-primary);
+  opacity: 1.0;
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* 暗色主题样式调整 */
+body[arco-theme='dark'] #nprogress .bar {
+  background: var(--color-primary-light-3);
+}
+
+body[arco-theme='dark'] #nprogress .peg {
+  box-shadow: 0 0 10px var(--color-primary-light-3), 0 0 5px var(--color-primary-light-3);
+}
