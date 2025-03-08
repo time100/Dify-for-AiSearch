@@ -210,7 +210,7 @@ window.APP_CONFIG = {
 - **APP_DESCRIPTION**: 应用详细描述，用于SEO和应用介绍
 - **APP_KEYWORDS**: SEO关键词，用于提高搜索引擎可见性
 
-### 法律信息
+### 页脚信息
 - **FOOTER_COPYRIGHT**: 页脚版权信息
 - **ICP_RECORD**: ICP备案号（中国大陆网站需要）
 - **PUBLIC_SECURITY_FILING_NUMBER**: 公安备案号（中国大陆网站需要）

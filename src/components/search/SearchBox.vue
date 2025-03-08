@@ -15,8 +15,8 @@
             <!-- 文件上传组件 -->
 
             <div class="relative">
-              <a-textarea allow-clear v-model="query" @keydown.enter="handleKeyDown"
-                :placeholder="currentPlaceholder" :auto-size="{
+              <a-textarea allow-clear v-model="query" @keydown.enter="handleKeyDown" :placeholder="currentPlaceholder"
+                :auto-size="{
                   minRows: 2,
                   maxRows: 5
                 }" />
@@ -24,12 +24,19 @@
 
             <div class="flex items-center justify-between mt-2">
               <div class="flex items-center space-x-2">
-
+                <!-- 下拉菜单 -->
                 <a-select v-model="selectedSearchType" size="medium">
                   <a-option v-for="option in searchOptions" :key="option.value" :value="option.value">{{ option.label
                     }}</a-option>
                 </a-select>
-
+                <!-- 按钮布局 -->
+                <!-- <a-space>
+                  <a-button v-for="option in searchOptions" :key="option.value"
+                    :type="selectedSearchType === option.value ? 'primary' : 'outline'"
+                    @click="selectSearchType(option.value)">
+                    {{ option.label }}
+                  </a-button>
+                </a-space> -->
               </div>
               <div class="flex items-center space-x-2">
                 <!-- 语音状态指示器 -->
