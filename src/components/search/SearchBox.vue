@@ -96,8 +96,8 @@ import FileUploader from "../upload/FileUploader.vue";
 
 import { useAppConfigStore } from "../../stores/appConfig";
 import IatRecorder from "../../assets/js/IatRecorder.js";
-import { type SearchOption } from "@/api/search";
-import { getUserId } from "@/api/search";
+import { type SearchOption } from "../../api/search";
+import { getUserId } from "../../api/search";
 import { useRouter } from "vue-router";
 
 // 引入配置

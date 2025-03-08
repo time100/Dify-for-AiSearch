@@ -18,9 +18,9 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    // 路径别名配置，使用绝对路径
+    // 路径别名配置
     alias: {
-      '@': '/Users/one/DEV/AiSearch/ai-search/src' // 使用项目绝对路径
+      '@': './src' // 使用相对路径，从项目根目录开始
     }
   },
   // 构建配置

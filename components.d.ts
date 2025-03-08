@@ -17,7 +17,6 @@ declare module 'vue' {
     ALayout: typeof import('@arco-design/web-vue')['Layout']
     ALayoutContent: typeof import('@arco-design/web-vue')['LayoutContent']
     ALayoutFooter: typeof import('@arco-design/web-vue')['LayoutFooter']
-    ALayoutSider: typeof import('@arco-design/web-vue')['LayoutSider']
     AOption: typeof import('@arco-design/web-vue')['Option']
     APageHeader: typeof import('@arco-design/web-vue')['PageHeader']
     AProgress: typeof import('@arco-design/web-vue')['Progress']

@@ -2,7 +2,7 @@ const APPID = "xxx"; //在科大讯飞控制台中获取的服务接口认证信
 const API_SECRET = "xxx"; //在科大讯飞控制台中获取的服务接口认证信息
 const API_KEY = "xxx"; //在科大讯飞控制台中获取的服务接口认证信息
 import CryptoJS from "crypto-js";
-import Worker from "@/assets/js/transcode.worker.js?worker";
+import Worker from "./transcode.worker.js?worker";
 
 //const transWorker = new Worker();
 //console.log(transWorker);
