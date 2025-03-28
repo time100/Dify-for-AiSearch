@@ -12,8 +12,8 @@ window.APP_CONFIG = {
     ICP_RECORD: '',
     PUBLIC_SECURITY_FILING_NUMBER: '',
     APP_VERSION: '1.0.0',
-    APP_URL: 'https://api.example.com/v1',  // Dify应用API地址
-    APP_KEY: 'your-dify-app-key',           // Dify应用密钥
+    APP_URL: 'https://ai.nanyuecloud.com/v1',  // Dify应用API地址
+    APP_KEY: 'app-Zlxhxpmnfx2aU8AAopZcwkaq',           // Dify应用密钥
     SERPER_APIKEY: 'your-serper-api-key',     // Serper API密钥
     // 搜索选项配置
     SEARCH_OPTIONS: [
