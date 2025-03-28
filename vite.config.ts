@@ -6,6 +6,16 @@ import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    port: 2048,
+    proxy: {
+      '/v1': {
+        target: 'https://ai.nanyuecloud.com',
+        changeOrigin: true,
+        secure: false
+      }
+    }
+  },
   plugins: [
     vue(),
     AutoImport({
